@@ -1,69 +1,5 @@
 # DEVOPS REPO AND CI / CD
 ###### Continuous Integration / Continuous Deployment
-## BRANCH STRATEGY
-
-MFG Applications uses a multi-Git repository strategy in Azure DevOps.  Our product code is grouped by Database, Library, and Product.  Each group has its own repository of code.  The branches include support for long running features, which span multiple sprints, and short run stories which span a single sprint.  Our strategy also supports the early release of product changes to production throughout the sprint cycle.
-
-Our branching strategy follows the Microsoft prescribed process as a baseline for source control and Git.
-
-![image](https://github.com/FIMA-DEV-Team/.github/assets/16480056/b7c21145-b0ed-4a70-9e6b-58cf908929bb)
-
- 
-Release branches are created from the master branch as product is completed within the development cycle.  The naming convention for releases is Release/# (sequential number of release).  At the end of the user testing cycle, release branches are created from the coded changes for a completed story or feature.
-
-Bugs and hot fixes in production are created from the release branch.  The naming convention for each is Bugfix/Description and Hotfix/[SNOW] or Description.  Bug fixes are post deployment issues that need to be resolved in short order.  Hot fixes are production related incidents coming from SNOW.  Accepted changes are merged back into the master branch and then into the sprint and/or feature branches if necessary.
-
-At the beginning of each sprint, a Sprint branch is created which will hold all the changes for that sprint.  The naming convention for the branch will be Sprint/[Name of Sprint].  As code changes are completed and need to be moved to the test environment they are merged from the story or feature through a pull request.  Any updates from a release BUG or Hotfix will be forward integrated into the master branch, and if necessary, into the sprint / story / or feature branches.  A sprint branch life span exists during a sprint.  At the end of the sprint, the sprint branch has reached it’s end and is no longer needed.  The code in the sprint branch is never merged back into main.
-
-Feature branches are for long running development that spans multiple sprint cycles.  Features consist of multiple stories that are used to build and complete the feature.  The naming convention for a feature Feature/[Feature ID #].  They are branched from the main branch when they are created.  Periodically it may be required to reverse integrate code from master back into the feature branch so that you are developing against the latest version.
-
-Story branches are for short run development that is not attached to a feature.  These span a single sprint and are expected to finish at the end of the sprint.    The naming convention for stories are Story/[PBI ID#].  They are branched from the main branch or from the sprint branch, depending on the case.  Typically, they are created from the main branch.  Periodically it may be necessary to reverse integrate from the master branches to ensure the most recent code is developed against.
-
-Our release pipeline is set up to continuously integrate developed product and deploy those changes automatically to the respective systems.  Initially as changes are merged into the sprint branch, this starts the process by deploying to our testing environments.  Once UAT approvals are gathered, the deployment continues with deploying product to production.
-
-As development work is completed and it is expected to go to the user testing environment, a pull request should be created for the story or feature branch.  The source of the pull request should be the story or feature branch, while the destination will be the current sprint branch.  Reviewers should be added to the pull request which should include a senior developer along with at least one other developer for peer review.
-
-When a story has passed UAT, it should then be merged back into the main branch and a release branch created.  This will ensure code changes are included in future development.
-
-A feature branch may / or may not be merged back into the master branch.  This is determined on a case-by-case basis.  When a feature branch reaches a state of development and is released to production, it should be merged back into the main branch and a release branch created.
-
-User branches can be created off the feature branch if you choose to do so.  However, this is not necessary as you can check code into the feature branch and create a pull request from Feature-to-Feature merging.
-
-All branches, check-ins, and pull requests should be linked to the PBI where the work is being done.
-
-![image](https://github.com/FIMA-DEV-Team/.github/assets/16480056/e1a7f233-aa15-4bc1-a63e-78cf16d90168)
-
- 
-Approved pull requests can be integrated back into the sprint branch using the pull request.  Make sure when creating the pull request, that the branch to merge into IS the SPRINT branch and NOT the MASTER branch.
-
-As code is checked into the sprint branch, this will trigger the automated build and deployment system.  
-
-All code should be checked in and pushed to source control at the end of your day.  **NO code changes should remain on a developer workstation**.  These code changes should be checked into your user, feature, or story branch.  These changes will need to be pushed back into source control from your local system.
-
-A change management ticket will be created in SNOW when final approvals have been obtained by the business (User Accepts Work).  Change management procedures will kick off in SNOW (Change Ticket Approved) which will identify the release date and times.
-
-## CHECK-IN DANCE
-Before code gets merged into the sprint branch, you must perform a sequence of steps to ensure your code changes will not conflict with any code on the server.
-
-The check-in dance is a sequence of steps to help in this process.
-
-Steps on your local machine:
-1. Sync the master branch on our local machine with source control
-2. Perform a Merge From master branch to your feature branch
-3. Fix any merge issues
-4. Build the solutions from your feature branch
-5. Fix any build issues
-6. Create the pull request
-
-It is also advisable to perform a sync and merge from master branch regularly so that what you are coding is on the freshest code available.
-
-## PULL REQUESTS
-A pull request should be created for product changes that are ready for review and to be merged back into the sprint branch.  After the developer completes the assigned tasks associated to a development effort and has completed all testing locally and is confident that the updates satisfy the story, they should create a pull request.  Make sure the request is linked to the associated PBI and describes the reason for the request.
-
-Pull requests can also be created to merge completed stories to the master branch.  This will only occur if the user acceptance testing cycle has completed.
-
-The senior developer should be assigned as a required approver for the request.  There should be at least one other developer assigned as an approver.
-
 ## BUILD PROCESS LAYOUT
 The build pipelines are responsible for building and running automated unit / integration testing of the product changes.  They are set to trigger automatically and run locally on MBCI servers.  The results of the build are stored in a staging location, waiting for the release process to pick them up.  Staging of product changes are on the MBCI build server under the STAGE folder.
 
@@ -151,30 +87,6 @@ All work should be completed by the end of the sprint.  This will keep the entir
 If new work is required mid sprint, the team can negotiate what adjustments may need to be made to current commitments.
 
 ## SOURCE CONTROL
-### PRODUCT LAYOUT
-The product is located at https://dev.azure.com/Retrogemu-DEV/FIMA-DEV/_git/ in Azure DevOps.  Each product is organized into separate repo by namespace of product and product type.  Databases, product libraries, service applications, and web applications are contained in separate repos.
-
-Each repo has a master branch which contains high quality code which may or may not be released.  
-
-The release branch is from master and contains the most current release to production.  The release branches are numbered in sequence and a minimum of 3 release branches are maintained for any given repo.
-
-![image](https://github.com/FIMA-DEV-Team/.github/assets/16480056/51fc3667-45bf-4619-96f9-81bacb079069)
- 
-Each repo can have different feature and story branches as developers work on the product.  The feature branches are branched from the master branch for the most current source.  Story branches are typically branched from master, but can be branched from a sprint branch if there is product dependency.
-
-![image](https://github.com/FIMA-DEV-Team/.github/assets/16480056/dd422872-7b79-438e-8295-cec15219750b)
-
- 
-As hot fixes are made in the release branch, these are merged back into to the master branch.  Each developer will be responsible for updating their feature or story branch with latest source as they continue working on the feature.
-
-![image](https://github.com/FIMA-DEV-Team/.github/assets/16480056/d7d55a44-a77e-4ef4-9d51-a4dae21a0f0f)
-
- 
-Feature and story code changes are moved / merged back into the main branch through pull request.  They must go through a review process to maintain high quality code in the master branch. 
-
-## CODING PRODUCT CHANGES
-Make sure that you are creating a feature branch from the master branch when you start working on the feature.  Make sure you are using the standard branch naming convention Feature/[PBI ID#] / Story/[PBI ID#].
-
 ## DATABASE PROJECTS
 All MFG stack applications will have a database projects in source control.  These projects are used to update our databases with the latest changes in an automated fashion.  The code in the database project is KING when it comes to what is in the physical database.  If changes are applied manually to the database, these can/will get wiped out the next time the database is published.  It is imperative that ANY change needed for the database is coded in the database project otherwise those changes will be lost forever.
 
