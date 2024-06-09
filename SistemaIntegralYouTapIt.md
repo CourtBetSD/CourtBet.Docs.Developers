@@ -56,6 +56,7 @@ Usuarios dentro de la empresa que administrara el sistema, se basa en diferentes
 	- [ ] clientes
 - [x] Activos
 - [ ] Cotizacion de Renta / Venta
+	- [ ] Envio de correo con cotizacion
 - [ ] Pedidos
 - [ ] Rentas
 	- [ ] Contrato
