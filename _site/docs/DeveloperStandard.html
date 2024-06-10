@@ -1,0 +1,634 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>DEVOPS REPO AND CI / CD | DD </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="DEVOPS REPO AND CI / CD | DD ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/CourtBetSD/Developers/blob/Story/3/docs/DeveloperStandard.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="DD">
+            DD
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="devops-repo-and-ci--cd">DEVOPS REPO AND CI / CD</h1>
+
+<h6 id="continuous-integration--continuous-deployment">Continuous Integration / Continuous Deployment</h6>
+<h2 id="build-process-layout">BUILD PROCESS LAYOUT</h2>
+<p>The build pipelines are responsible for building and running automated unit / integration testing of the product changes.  They are set to trigger automatically and run locally on MBCI servers.  The results of the build are stored in a staging location, waiting for the release process to pick them up.  Staging of product changes are on the MBCI build server under the STAGE folder.</p>
+<h2 id="release-process-layout">RELEASE PROCESS LAYOUT</h2>
+<p>The release pipelines are responsible for testing and deploying the product to the associated servers and databases.  This will pick up the STAGE build files and move those changes to the respective environment.  The release is triggered by a sprint build which then deploys those changes to the testing environment.  Chained to the testing environment deployment is the release to production.  After the UAT cycle has been approved, then the PROD deployment starts.  These are deferred deployments for the same evening or early next morning.</p>
+<h2 id="workflow-for-developer">WORKFLOW FOR DEVELOPER</h2>
+<p>All coding change work should be conducted in the correct feature branch using their name and SNOW number.  This follows the standard naming convention for feature branches.  Work is checked into source control under the feature branch at the end of the shift to ensure all code is available and stored safely.</p>
+<p>The following outlines the typical development cycle</p>
+<ol>
+<li>Stories are assigned to a sprint.</li>
+<li>Changes are made to code in source control for the respective product repo.</li>
+<li>In-complete code changes are checked into source control under the story or feature branch.
+<ol>
+<li>Pick up the PBI where work is to be completed.  (Work only on 1 PBI at a time)
+<ol>
+<li>Ensure the state of the PBI is Development (if not already completed).</li>
+<li>Change the state of your task from To Do to In Progress</li>
+</ol>
+</li>
+<li>If switching to a new PBI
+<ol>
+<li>Make sure you follow the story or feature branch naming convention to keep work separated from one PBI to the next.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Make changes to the product per the PBI and Task item descriptions in the feature branch.</li>
+<li>Submit a pull request for code review when coding changes are complete</li>
+<li>Change the state of the Task item to Done</li>
+<li>Move the PBI to the next state when all task items have been completed.  This will typically be business testing.</li>
+</ol>
+<h2 id="pipelines-for-libraries">PIPELINES FOR LIBRARIES</h2>
+<p>When making changes to a library product that ends up being part of a NuGet package.  Follow these versioning rules so that the product versions can be referenced and organized.</p>
+<p>Our versioning follows this pattern Major.Minor.Patch.</p>
+<p>In the build pipeline yaml file a version number is maintained and the following rules should be applied to update this file.</p>
+<ul>
+<li>Major = is incremented when a breaking change is made, or a significant change set is applied to the library.</li>
+<li>Minor = is incremented when a new feature is implemented for the library based upon the story making the change.  Minor is reset to zero when the major is incremented.</li>
+<li>Patch = is automatically incremented for each build by the system and should not need to be updated.</li>
+</ul>
+<h2 id="agile-process">AGILE PROCESS</h2>
+<h3 id="scrum-teams">SCRUM TEAMS</h3>
+<p>The manufacturing application team is the scrum team doing the work.  There are multiple teams under the MFGApplications team project (teams of teams).  The team resources work from the MFGApplications team boards, which encompasses all the sub teams.  The sub teams are organized by product (FIMA, YouTapIt,Other) and exist for operations awareness.</p>
+<h4 id="incident-resolution">INCIDENT RESOLUTION</h4>
+<p>Production related incidents are managed by the team for the product they support.  We do not have separate resources to manage release hot fixes.  Incidents are added to the backlog as bug items and tracked as requirements.  As incidents are raised in service-now they will follow 1 of two paths: 1) P1 and P2 tickets require immediate resolution on current sprint, 2) P3 and below are planned for future sprints.  Unplanned work may affect the team commitment for sprint items, so adjustments will need to be made based upon capacity.</p>
+<h5 id="adding-incidents-to-the-backlog">ADDING INCIDENTS TO THE BACKLOG</h5>
+<ol>
+<li>SNOW incidents are entered in the backlog as a BUG
+<ol>
+<li>The SNOW ticket should be added to the SNOW field</li>
+<li>The caller from the SNOW ticket should be added to the Business Owner field</li>
+<li>Relative effort sizing based upon the developer opinion will need to be added to the effort field</li>
+<li>The description should be copied from the SNOW ticket</li>
+</ol>
+</li>
+<li>All incident BUGs should be added to the TOP of the backlog</li>
+<li>If the incident is not added to the current sprint the SNOW ticket state should be set to planning</li>
+</ol>
+<h2 id="daily-standup-scrum-meeting">DAILY STANDUP SCRUM MEETING</h2>
+<p>The scrum meeting is usually scheduled for 15 mins.</p>
+<p>The following activities are discussed during the daily scrum meeting:</p>
+<ul>
+<li>What I completed yesterday to achieve sprint goals</li>
+<li>What I am working on today to achieve sprint goals</li>
+<li>What is impeding me from completing my work.</li>
+</ul>
+<h2 id="work-item-types">WORK ITEM TYPES</h2>
+<h3 id="product-backlog-item">PRODUCT BACKLOG ITEM</h3>
+<p>This is the default work item type in our agile boards.  It is used to keep track of the business change request and typically applies to enhancement work.</p>
+<h3 id="incidents">INCIDENTS</h3>
+<p>Incidents are production related issues and identified as a BUG work item type.  They come from service now and tracked in the team board.</p>
+<h3 id="change-request">CHANGE REQUEST</h3>
+<p>This is a specialized work item type used to keep track of changes being deployed.  It is mapped to a specific change request that has related work items attached to it.  Those items are specified on the change ticket in SNOW.  It will show the release names on the release tab in TFS.</p>
+<h3 id="bugs">BUGS</h3>
+<p>Bug items identify an issue with work that was completed from features.  These typically are entered by the business and identify the issue along with steps to reproduce.  They are used to keep track of the fixes required for the related work item.  They can come into a sprint while the business is testing.</p>
+<h3 id="swim-lanes">SWIM LANES</h3>
+<p>We currently do not use swim lanes.</p>
+<h3 id="sprint-development">SPRINT DEVELOPMENT</h3>
+<p>Stories is regularly groomed during throughout each cycle.  Priority items are groomed first and staged onto future sprints.  When a new sprint is being created, these work items are assigned to a sprint and team members based upon available capacity.</p>
+<p>Each of the work items is organized in priority order (top to bottom) and should be worked on in that order.  This will keep the team aligned with business need as well as aligning interdependent work across the team.</p>
+<p>As a team member, when your task item becomes available for work to be completed, review the description, and complete the work outlined.</p>
+<p>All work should be completed by the end of the sprint.  This will keep the entire team on track with the timelines communicated to the business.</p>
+<p>If new work is required mid sprint, the team can negotiate what adjustments may need to be made to current commitments.</p>
+<h2 id="source-control">SOURCE CONTROL</h2>
+<h2 id="database-projects">DATABASE PROJECTS</h2>
+<p>All MFG stack applications will have a database projects in source control.  These projects are used to update our databases with the latest changes in an automated fashion.  The code in the database project is KING when it comes to what is in the physical database.  If changes are applied manually to the database, these can/will get wiped out the next time the database is published.  It is imperative that ANY change needed for the database is coded in the database project otherwise those changes will be lost forever.</p>
+<p>All projects have a schema compare object that will take updates from the database and put them in the database project.  You can use these to keep source control up to date with the database (if needed).  They should be used only when needed as all development work should be done in the project itself.</p>
+<p>In some database projects there is a reference projects which are shared between one database and another.  These are classified as a composite database (the database is split between 2 different projects within the solution).  These projects should only have objects that are shared between the databases.</p>
+<h2 id="developer-procedures">DEVELOPER PROCEDURES</h2>
+<h3 id="workflow">WORKFLOW</h3>
+<p>The following outlines our processes to manage the work requirements.  This outline does not cover every conceivable situation but does outline a typical cycle from product inception to production.</p>
+<p>NEW WORK</p>
+<ol>
+<li>PO / BA (In DevOps)
+<ol>
+<li>Creates PBI</li>
+<li>Prioritizes PBI to business delivery schedule</li>
+<li>Moves PBI to grooming state when ready to take work on
+<ol>
+<li>Grooms PBI with requirements</li>
+</ol>
+</li>
+<li>Grooms backlog requirements with team
+<ol>
+<li>Team provides effort estimates</li>
+<li>Moves PBI to planning column</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>PBI’s in the planning column are staged for sprint assignment
+<ol>
+<li>Tasks are created with hour estimates added for PBI’s by the team.</li>
+</ol>
+</li>
+</ol>
+<h3 id="sprint-development-cycle">SPRINT DEVELOPMENT CYCLE</h3>
+<ol>
+<li>When sprint starts, PBI’s are moved to the development state.</li>
+<li>Development Team (in SNOW)
+a.	Changes state of ticket to:
+i.	State = Work In Progress
+ii.	Sub State = Development in Progress</li>
+<li>Development Team (In DevOps)
+a.	Picks up task items and develops work to complete PBI
+b.	Send completed work for code review through Pull Request
+i.	Reviewers look at code and provides developer feedback or approves changes.  Stack lead must be one of the reviewers.
+ii.	Developer makes any necessary changes and resubmits pull request until everything passes
+c.	Work is checked into source control for respective feature branch
+i.	Each feature branch should be linked to a specific PBI and contain changes for that PBI.  NEVER develop features for other PBI’s onto other feature branches.
+ii.	Update the comments for the check to state what the reason for the check in is.
+d.	Update the task item for the work is DONE.
+e.	When ALL development task items are complete for a PBI and ALL code reviews are clean move the PBI to the User Testing column.</li>
+<li>Development Team (In SNOW)
+a.	Change ticket sub state to QUA required when all required changes for a PBI are complete									
+RELEASE DEVELOPMENT WORK</li>
+<li>Business (In SNOW)
+a.	After business tests and approves the work attach test results to the SNOW ticket
+b.	Change the ticket sub state to QUA Approved</li>
+<li>Business (In DevOps)
+a.	Move the PBI to the Deployment Column</li>
+<li>Development Team (In SNOW)
+a.	Create SNOW change ticket
+i.	Associate ER tickets to change ticket
+b.	Updates change ticket with deployment plan
+i.	CI/CD Automated
+ii.	Submit the change ticket for approval</li>
+<li>Development Team (In DevOps repo)
+a.	Only changes that have business approval and change control approval in SNOW can continue in this process.
+b.	Only work items in the “Deployment” column can continue in this process.
+c.	Create a release branch for the affected repos.
+d.	Verify ALL required changes have moved correctly into the main trunk.
+i.	Open associated projects and build on local machine.  Fix any changes that may need to be made.</li>
+<li>Development Team (In DevOps)
+a.	Create Change Request work item for release
+i.	Relate PBI’s to Change Request
+b.	Update Change Request with release details
+c.	Update Change Request with SNOW change ticket number
+d.	Move Change Request to Deployment column
+PRODUCTION RELEASE</li>
+<li>Development Team (In SNOW)
+a.	Updates change ticket as complete
+b.	Moves PBI’s to Done column
+BUG REMEDIATION
+When the business is testing product changes, some issue may occur.  These should be reflected in a BUG work item and associated to the PBI being tested.  The BUG should include steps on how the issue was encountered and list the expected results.</li>
+<li>Business (In SNOW)
+a.	Reject ER ticket as re-work</li>
+<li>Business (In DevOps)
+a.	Creates a bug item for the PBI being tested
+b.	Updates the steps and acceptance criteria</li>
+<li>Stack Lead (In DevOps)
+a.	Evaluates bug item validity and defines actions
+b.	Bug work item assigned to sprint for re-work
+c.	Changes state to Approved</li>
+<li>Developer (In DevOps repo)
+a.	Creates a BugFix branch for the bug.
+b.	Reworks PBI changes to account for BUG
+i.	Associate rework to PBI and BUG work item
+c.	Creates a pull request for code review
+d.	Change state of BUG to Committed</li>
+<li>Review of pull request is completed
+a.	Developer changes state of SNOW ticket to QUA Required
+b.	Bug fix branch is merged back into main branch.</li>
+<li>Stack Lead (In DevOps)
+a.	After code review complete changes BUG state to Done
+CODE REVIEWS
+When requesting a code review, create a pull request and associate it to the specific PBI and Task item the changes relate to.  This will help streamline the review process so that the reviewer knows what to specifically look at.  Also, the senior developer must be a required reviewer on the pull request.  The pull must include one other developer, but they may not be required.
+MIGRATION TO PROD
+Production migration occurs when a story or feature is approved through the automated release pipeline.  These changes are carried from the sprint branch to production.  As product is approved by the business and the change request is approved by leadership, the release pipeline can be updated and approved for release to production that evening or early the next morning.
+It is the developer responsibility to ensure that product changes moving into the release branch is complete and accurate.
+CODING PRACTICES
+The manufacturing application team uses sandcastle to document our product.  This will take XML comments from the compiled library and build a documentation website.  To ensure our documentation is complete and accurate the following rules apply:
+•	All classes, properties, members, and methods should have xml comments
+•	Comments should include standard and enhanced (SHFB) nodes (see references)
+•	Use a NamespaceDoc class to document namespaces
+•	Use a NamespaceGroupDoc class to document namespace groups
+•	Revision history should be included at the class and method levels
+o	The details should include a description of what was changed.
+o	A detailed list can be provided which can help provide clarity of the changes made
+•	Class and Method implementation should be provided to help other developers understand how to use the class or method.
+CODING STANDARDS
+The standard outlined below is intended to be a guideline for all internal and contracted resources.  Adherence to the designated standards of MasterBrand Cabinets, Inc. will make knowledge transfer/distribution among the internal programming staff and external contracted vendors easier and more uniform.<br>
+The following standard has code samples presented in C#.  Note that this language preference is not required, but the methodology outlined with code samples is.  If shifting to .NET from another coding language, then the preferred language to learn and develop is C# if there is no previous background in .NET programming.
+This initial version is also intended to provoke discussion within MasterBrand Cabinets, Inc and in the valued contractors that are utilized.  Any questions, additions, or modifications will be discussed and consensus met prior to modifying this document.  Once changes are made, the version number will reflect any change to the standards document.
+*Note that all code samples are evident below through the use of italics.
+*Note that examples are evident below in Times New Roman font.
+NAMING CONVENTIONS AND STYLES</li>
+<li>Use Pascal case for type (class, structure, etc), method names, and constants.</li>
+</ol>
+<pre><code class="lang-csharp">	Public class SomeClass
+	{
+		const int DefaultSize = 10;
+		public void SomeMethod()
+		{}
+	}
+</code></pre>
+<ol start="3">
+<li>Use camel case for local variable names and method arguments.</li>
+</ol>
+<pre><code class="lang-csharp">	Int number;
+	Void MyMethod(int, someNumber)
+	{…}
+</code></pre>
+<ol start="5">
+<li>Prefix interface names with I</li>
+</ol>
+<pre><code class="lang-csharp">	Interface IMyInterface
+	{…}
+</code></pre>
+<ol start="7">
+<li>Prefix private member variables with _.  Use Pascal case for the rest of the variable name following the _.</li>
+<li>Suffix custom attribute classes with Attribute.</li>
+<li>Suffix custom exception classes with Exception.</li>
+<li>Name methods using verb-object pair. (i.e. GetProductPrice(), ValidateProductModification(), GetCustomerMultiplier())</li>
+<li>Use descriptive variable names.
+a. Avoid single variable names, such as i or t.  Use index or temp.
+b. Avoid using Hungarian notation for public or protected members.
+c. Do not abbreviate words such as num for number.</li>
+<li>Always use C# predefined types rather than their aliases in the System namespace.
+Example:</li>
+</ol>
+<pre><code class="lang-csharp">	object NOT Object
+	string NOT String
+	int NOT Int32
+	short NOT Int16
+</code></pre>
+<ol start="14">
+<li>Use descriptive namespaces such as company name or the product name.
+Example:
+If the application name is eQuote and the Company name is MBCI.
+The namespace would be:</li>
+</ol>
+<pre><code class="lang-csharp">	MBCI.eQuote.DataAccessLayer
+	MBCI.eQuote.Common
+</code></pre>
+<ol start="16">
+<li>Avoid fully qualified type names.  Use the using statement.</li>
+</ol>
+<pre><code class="lang-csharp">	// Correct:
+	using System.Configuration;
+	ConfigurationManager.GetSetting(“dbConn”);
+	// Incorrect:
+	System.Configuration.ConfigurationManager.GetSetting(“dbConn”);
+</code></pre>
+<ol start="18">
+<li>Avoid putting the using statement inside the namespace.</li>
+<li>Put custom or third-party namespaces underneath framework namespaces.</li>
+<li>Use delegate inference instead of explicit delegate instantiation.</li>
+</ol>
+<pre><code class="lang-csharp">	Delegate void SomeDelegate();
+	public void SomeMethod()
+	{…}
+	SomeDelegate someDelegate = SomeMethod;
+</code></pre>
+<ol start="22">
+<li>Maintain indentation.  No tabs or single spaces.  Uniform indentation should span the entire project.</li>
+<li>Comment indentation should be in line with the code being written.</li>
+<li>Misspelled comments allude to messy code.  Spell check all comments.</li>
+<li>All member variables should be declared at the top with one line separating the variable(s) from all properties and methods.</li>
+</ol>
+<pre><code class="lang-csharp">	Public class SomeClass
+	{
+		private int _CustomerId;
+		private string _CustomerName;
+
+		public void SomeMethod1()
+		{…}
+		public void SomeMethod2()
+		{…}
+	}
+</code></pre>
+<ol start="27">
+<li>Declare a local variable as close to first use as possible.</li>
+<li>A file name should reflect the class within.</li>
+<li>Always place an open curly brace ({) on a new line.</li>
+<li>Declare each variable independently on separate lines.</li>
+<li>Group class implementation in the following order:
+a. Member variables
+b. Constructors &amp; Finalizers
+c. Properties
+d. Methods
+i. Instance Methods
+ii. Static Methods</li>
+<li>Prefix Boolean variables with “Can”, “Is”, or “Has”.</li>
+</ol>
+<pre><code class="lang-csharp">	bool IsCustomerActive;
+	bool CanCustomerOrder;
+	bool HasCreditAvailable;
+</code></pre>
+<p>CODING GUIDELINES</p>
+<ol>
+<li>Class files cannot consist of multiple classes.  One class per class file.</li>
+<li>Attempt to limit files to 500 lines or less.</li>
+<li>Methods should consist of 50 lines or less.</li>
+<li>Avoid methods with more than 10 arguments.  Use structures for passing multiple arguments.</li>
+<li>Do not manually edit any machine-generated code.
+a. Proxy classes generated using “wsdl” or “Add Web Reference”.  Do not modify the constructor of these classes to communicate with a different URL or add credential information.  Set all these properties from the code that instantiates the proxy class.</li>
+<li>Each page should contain header comments detailing the original developer, a data time stamp, and brief summary of the page functionality.</li>
+<li>Additions/changes to existing pages should contain additional comments at the header comment level underneath the original with the developer name, date time stamp of change, and description of that change.</li>
+<li>Avoid obvious comments.  Variable and method names should be sufficiently descriptive to all developers.</li>
+<li>Never hard code a numeric value.  Always declare a constant.</li>
+<li>Never use const on read-only variables.  Use the readonly directive.</li>
+</ol>
+<pre><code class="lang-csharp">	public class MyClass
+	{
+		public const int DaysInWeek = 7;
+		public readonly int Number;
+		public MyClass(int, someValue)
+		{
+			Number = someValue;
+		}
+	}
+</code></pre>
+<ol start="11">
+<li>Assert every assumption.  Typically every fifth line is an assertion.</li>
+</ol>
+<pre><code class="lang-csharp">	using System.Diagnostics;
+	object GetObject()
+	{…}
+	object someObject = GetObject();
+	Debug.Assert(someObject != null);
+</code></pre>
+<ol start="13">
+<li>Catch exceptions for which there is explicit handling.  If an exception is caught, always throw the original exception or another exception constructed from the original exception, to maintain the stack location of the original error.</li>
+</ol>
+<pre><code class="lang-csharp">	catch(Exception exception)
+	{
+		MessageBox.Show(exception.Message);
+		throw;
+	}
+</code></pre>
+<ol start="14">
+<li>Do not use error codes as function return values.</li>
+<li>Limit custom exception classes.  Custom exception classes should follow these rules:
+a. Derive the custom exception from Exception
+b. Provide custom serialization</li>
+<li>Limit public types to what is necessary.  All others should be marked internal.</li>
+<li>Use class libraries to contain business logic.</li>
+<li>Do not use explicit values for enums.</li>
+</ol>
+<pre><code class="lang-csharp">	// Correct
+	public enum Cabinet
+	{
+		Base, Wall, Tall
+	}
+	//Incorrect
+	public enum Cabinet
+	{
+		Base = 0, Wall = 1, Tall = 2
+	}
+</code></pre>
+<ol start="19">
+<li>Do not specify a type for an enum.</li>
+</ol>
+<pre><code class="lang-csharp">	// Avoid
+	public enum Cabinet:long
+	{
+		Base, Wall, Tall
+	}
+</code></pre>
+<ol start="20">
+<li>If statements require the use of a curly brace.</li>
+<li>Do not use the ternary conditional operator.
+Bool IsValid = PerformValidation() ? true:false;</li>
+<li>Do not use Boolean calls in conditional statements.  Use local variables.</li>
+</ol>
+<pre><code class="lang-csharp">	bool IsValidationSuccessful()
+	{…}
+	// Avoid
+	If(IsValidationSuccessful())
+	{…}
+	// Correct
+	bool ok = IsValidationSuccessful();
+	if(ok)
+	{…}
+</code></pre>
+<ol start="23">
+<li>Use zero-based arrays.</li>
+<li>Explicitly initialize an array of reference types using a for loop.</li>
+</ol>
+<pre><code class="lang-csharp">	Public class MyClass
+	{
+		const int ArraySize = 100;
+		MyClass[] array = new MyClass[ArraySize];
+		For(int index = 0; index &lt; array.Length; index++)
+		{
+			Array[index] = new MyClass();
+		}
+	}
+</code></pre>
+<ol start="25">
+<li>Do not provide public or protected member variables.  Use properties.</li>
+<li>Do not use the inheritance qualifier.  Use override.</li>
+<li>Mark public and protected methods as Virtual in a non-sealed class.</li>
+<li>Do not use unsafe code, except when using interop.</li>
+<li>Avoid explicit casting.  Use the “as” operator to defensively cast to a type.</li>
+</ol>
+<pre><code class="lang-csharp">	Model model = new Cabinet();
+	Cabinet cabinet =model as Cabinet;
+	If(cabinet != null)
+	{…}
+</code></pre>
+<ol start="30">
+<li>Check a delegate for null before invoking.</li>
+<li>Do not hardcode strings that are presented to end users.  Use resources or configuration files.</li>
+<li>Do not hardcode a string that could change based on deployment.</li>
+<li>Use String.Empty, not “”.</li>
+<li>Use String.Compare, not the “==” operator.</li>
+<li>Use StringBuilder when building long strings.</li>
+<li>Do not concatenate strings inside a loop.</li>
+<li>Use String.Length = 0 property to check for empty strings.</li>
+<li>Implement Object.ToString() to return a textual expression.</li>
+</ol>
+<pre><code class="lang-csharp">	public override string ToString()
+	{
+		return String.Format(“CustomerId: {0}”, CustomerId);
+	}
+</code></pre>
+<ol start="39">
+<li>Use application logging and tracing.</li>
+<li>Always have a default case in a switch statement.</li>
+</ol>
+<pre><code class="lang-csharp">	int number = SomeMethod();
+	switch(number)
+	{
+		case 1:
+			Trace.WriteLine(“Case 1:”);
+			break;
+		case 2:
+			Trace.WriteLine(“Case 2:”);
+			break;
+		default:
+			Debug.Assert(false);
+			break;
+	}
+</code></pre>
+<p>FRAMEWORK GUIDELINES</p>
+<ol>
+<li>Use type-safe data sets or data tables.  Avoid raw ADO.NET.</li>
+<li>Always use transactions when accessing a database.
+a. Use Enterprise Services or System.Transactions transactions.
+b. Do not use ADO.NET transactions by enlisting the database explicitly.</li>
+<li>Use transaction isolation level set to Serializable.</li>
+<li>Do not use the Data Source window to drop connections on Windows Forms, ASP.NET forms, or Web Services.  Maintain separation between the presentation tier and the data tier.</li>
+<li>Do not use SQL Server authentication.  If it is unavoidable to use SQL Server authentication, the database connection string must be encrypted.</li>
+<li>Do not put logic within a stored procedure.  Outside of simple switching logic to vary a query based on parameter values, logic should be placed in the business logic layer of the code.</li>
+<li>No code should be placed in the ASPX files.  All code should be placed in code-behind pages.</li>
+<li>Check all session variables for null prior to accessing.</li>
+<li>Avoid setting the AutoPostBack property of server controls to true.</li>
+<li>Turn on SmartNavigation for ASP.NET pages.  This will reduce “flicker” on post back.</li>
+<li>Always provide namespace and service descriptions for web services.</li>
+<li>Always provide descriptions for web methods.</li>
+<li>When adding a web service reference, provide a meaningful name for the location.</li>
+<li>In ASP.NET pages and web services, the session variables should be wrapped in a local property.  Only that property should be allowed to access the session variable, and the rest of the code should use the property, not the session variable.</li>
+</ol>
+<pre><code class="lang-csharp">	public class Calculator:WebService
+	{
+		int Memory
+		{
+			get
+			{
+				int memory = 0;
+				object state = Session[“Memory”];
+				if(state != null)
+				{
+					Memory = (int) state;
+				}
+				return memory;
+			}
+			set
+			{
+				Session[“Memory”] = value;
+			}
+		}
+		[WebMethod(EnableSession = true)]
+		public void MemoryReset()
+		{
+			Memory = 0;
+		}
+	}
+</code></pre>
+<ol start="15">
+<li>Always dispose of a TransactionScope object.</li>
+<li>Do not put any code after the call to Complete() inside a transaction scope.</li>
+<li>Do not set the transaction timeout to zero in Release builds.  Set infinite timeout.</li>
+<li>Do not catch exceptions in a transactional method.  Use the AutoComplete attribute.</li>
+<li>Do not call SetComplete(), SetAbort(), and any similar.  Use the AutoComplete attribute.</li>
+<li>Always override CanBePooled and return true.</li>
+<li>Always call Dispose() explicitly on pooled objects unless the component is configured to use JIT.</li>
+<li>Never call Dispose() when the component uses JIT.</li>
+<li>Always set authorization level to the application and component.</li>
+<li>Set authentication level to privacy on all applications.</li>
+<li>Set impersonation level on client assemblies to Identity.</li>
+</ol>
+<p>REFERENCES
+•	XML documentation comments: <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/">https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/</a>
+•	Sandcastle XML comments Guide: <a href="https://ewsoftware.github.io/XMLCommentsGuide/html/4268757F-CE8D-4E6D-8502-4F7F2E22DDA3.htm">https://ewsoftware.github.io/XMLCommentsGuide/html/4268757F-CE8D-4E6D-8502-4F7F2E22DDA3.htm</a>
+•</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/CourtBetSD/Developers/blob/Story/3/docs/DeveloperStandard.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
