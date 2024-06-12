@@ -2,12 +2,16 @@
 - href: introduction.md
   name: Introduction
 - items:
-    - href: SistemaIntegralYouTapIt.md
+    - href: System/SistemaIntegralYouTapIt.md
       name: Sistema Integral YouTapIt
   name: YouTapIt
 - items:
-    - href: BranchStrategy.md
+    - href: Developers/Introduction.md
+      name: Introduction
+    - href: Developers/BranchStrategy.md
       name: Branch Strategy
-    - href: DeveloperStandard.md
+    - href: Developers/DeveloperStandard.md
       name: Developers Standard
+    - href: Developers/Database.md
+      name: Database
   name: Developers Introduction
