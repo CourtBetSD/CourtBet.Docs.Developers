@@ -19,3 +19,7 @@
     - href: Developers/Database.md
       name: Database
   name: Developers Introduction
+- items:
+    - href: Installations/CRM.md
+      name: Installation SuiteCRM
+  name: Installations
