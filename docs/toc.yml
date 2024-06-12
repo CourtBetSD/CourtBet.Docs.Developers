@@ -10,6 +10,10 @@
       name: Introduction
     - href: Developers/BranchStrategy.md
       name: Branch Strategy
+    - href: Developers/CommitsConvention.es.md
+      name: Commits Convention Spanish
+    - href: Developers/CommitsConvention.en.md
+      name: Commits Convention English
     - href: Developers/DeveloperStandard.md
       name: Developers Standard
     - href: Developers/Database.md
