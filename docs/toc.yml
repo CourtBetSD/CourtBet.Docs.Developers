@@ -1,0 +1,21 @@
+---
+- href: introduction.md
+  name: Introduction
+- items:
+    - href: System/SistemaIntegralYouTapIt.md
+      name: Sistema Integral YouTapIt
+  name: YouTapIt
+- items:
+    - href: Developers/Introduction.md
+      name: Introduction
+    - href: Developers/BranchStrategy.md
+      name: Branch Strategy
+    - href: Developers/CommitsConvention.es.md
+      name: Commits Convention Spanish
+    - href: Developers/CommitsConvention.en.md
+      name: Commits Convention English
+    - href: Developers/DeveloperStandard.md
+      name: Developers Standard
+    - href: Developers/Database.md
+      name: Database
+  name: Developers Introduction

@@ -1,34 +1,40 @@
 
 # Sistema Integral Youtapit
+
 Este sistema se compone actualmente de Ecommerce, Inventarios, y Punto de venta.
 
 ## Concepto General
 
 ### Personal(Usuarios)
+
 Usuarios dentro de la empresa que administrara el sistema, se basa en diferentes areas o en una sola segun sea la estructura de la organizacion.
+
 - [x] Creacion de usuarios
 - [x] Modificacion de permisos
 - [x] Eliminacion de usuarios y permisos
 
 ### Activos
+
 - [x] Listado de activos
-	- [x] Asignar contraseña para acceso externo
-	- [x] obtener QR para acceso externo y unico
-	- [x] Datos
-	- [x] Documentos
-	- [x] Documentos temporales
-	- [x] Enlaces
-	- [x] Precarga de carta porte
-	- [x] Aplicar gasto a activo.
-	- [x] Reporte de gastos aplicados a activo
-	- [x] Reporte de activos
+ 	- [x] Asignar contraseña para acceso externo
+ 	- [x] obtener QR para acceso externo y unico
+ 	- [x] Datos
+ 	- [x] Documentos
+ 	- [x] Documentos temporales
+ 	- [x] Enlaces
+ 	- [x] Precarga de carta porte
+ 	- [x] Aplicar gasto a activo.
+ 	- [x] Reporte de gastos aplicados a activo
+ 	- [x] Reporte de activos
 
 ### Clientes
+
 - [ ] Leads
 - [ ] Prospectos
 - [ ] Clientes
 
 ### Administracion
+
 - [x] Facturacion
 - [ ] Cobranza
 - [ ] Compras
@@ -40,8 +46,9 @@ Usuarios dentro de la empresa que administrara el sistema, se basa en diferentes
 - [x] Catalogos(Tipos de gastos, proveedores, etc)
 
 ### Procesos
+
 - [ ] Renta
-	- [ ] Politicas de renta
+ 	- [ ] Politicas de renta
 - [ ] Contratos
 - [ ] Entrega
 - [ ] Recoleccion
@@ -50,18 +57,19 @@ Usuarios dentro de la empresa que administrara el sistema, se basa en diferentes
 - [ ] Ventas y Apartados
 
 ## Modulos del sistema
+
 - [ ] Clientes
-	- [ ] leads
-	- [ ] prospectos
-	- [ ] clientes
+ 	- [ ] leads
+ 	- [ ] prospectos
+ 	- [ ] clientes
 - [x] Activos
 - [ ] Cotizacion de Renta / Venta
-	- [ ] Envio de correo con cotizacion
+ 	- [ ] Envio de correo con cotizacion
 - [ ] Pedidos
 - [ ] Rentas
-	- [ ] Contrato
-	- [ ] Cancelación
-	- [ ] Extension de contrato
+ 	- [ ] Contrato
+ 	- [ ] Cancelación
+ 	- [ ] Extension de contrato
 - [ ] Recepcion y entrega de maquinaria
 - [ ] Asistencia tecnica
 - [ ] Cobranza
