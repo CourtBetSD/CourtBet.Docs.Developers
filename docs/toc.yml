@@ -10,6 +10,10 @@
       name: Introduction
     - href: Developers/BranchStrategy.md
       name: Branch Strategy
+    - href: Developers/SemanticVersioning.es.md
+      name: Semantic Versioning Spanish
+    - href: Developers/SemanticVersioning.en.md
+      name: Semantic Versioning English
     - href: Developers/CommitsConvention.es.md
       name: Commits Convention Spanish
     - href: Developers/CommitsConvention.en.md
