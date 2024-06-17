@@ -30,8 +30,8 @@ Usuarios dentro de la empresa que administrara el sistema, se basa en diferentes
 ### Clientes
 
 - [ ] Leads
-- [ ] Prospectos
-- [ ] Clientes
+- [x] Prospectos
+- [x] Clientes
 
 ### Administracion
 
@@ -53,17 +53,17 @@ Usuarios dentro de la empresa que administrara el sistema, se basa en diferentes
 - [ ] Entrega
 - [ ] Recoleccion
 - [ ] Mantenimiento
-- [ ] Cotizaciones
-- [ ] Ventas y Apartados
+- [x] Cotizaciones
+- [x] Ventas y Apartados
 
 ## Modulos del sistema
 
-- [ ] Clientes
- 	- [ ] leads
- 	- [ ] prospectos
- 	- [ ] clientes
+- [x] Clientes
+ 	- [x] leads
+ 	- [x] prospectos
+ 	- [x] clientes
 - [x] Activos
-- [ ] Cotizacion de Renta / Venta
+- [x] Cotizacion de Renta / Venta
  	- [ ] Envio de correo con cotizacion
 - [ ] Pedidos
 - [ ] Rentas
