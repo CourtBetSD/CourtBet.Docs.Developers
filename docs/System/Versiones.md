@@ -32,6 +32,8 @@ Descripcion de las versiones de los sistemas de CourtBet
 - #160 - Ajustados botones de sucursal.
 - #162 - Resuelto error al eliminar imagen.
 - #162 - Resuelto error al eliminar activo.
+- #135 - Agregado modulo de cobranza.
+- #136 - Agregado modulo de rentas y politicas.
 
 ### CourtBet.Project.Administrators
 

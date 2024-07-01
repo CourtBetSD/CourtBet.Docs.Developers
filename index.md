@@ -12,4 +12,4 @@ Please refer to Docs.
 
 ## Version
 
-> 1.4.0
+> 1.4.1
