@@ -2,7 +2,33 @@
 
 Descripcion de las versiones de los sistemas de CourtBet
 
-## 30/06/2024
+## 1.8.13 - 05/07/2024
+
+### CourtBet.API.Integrations
+
+- #75 - Limitar creacion de contraseña hash a 10 pasos.
+- #87 - Resuelto bug que evitaba eliminar activo si tenia precarga de carta porte.
+- #88 - Resuelto bug al asignar contraseña a archivo.
+- #89 - Resuelto bug al cambiar el orden de los activos.
+- #90 - Resuelto bug al cambiar orden de archivos temporales.
+- #91 - Resuelto bug al editar datos de gasto de activo.
+- #92 - Resuelto bug al actualizar datos de activo.
+- #94 - Resuelto bug al actualizar datos de Clientes.
+- #95 - Resuelto bug al actualizar datos de Orden de Venta.
+- #96 - Resuelto bug al actualizar datos de Cotización.
+- #97 - Resuelto bug al crear usuario de sistema.
+- #98 - Resuelto bug al actualizar datos de usuario de sistema.
+- #93 - Resuelto bug con datos generados en reporte de gastos de activo.
+
+### CourtBet.Project.YouTapIt_Inventarios
+
+- #161 - Resuelto error al subir imágenes de activo.
+- #177 - Resuelto bug con calculo de totales en Orden de venta y Cotizaciones.
+- #178 - Resuelto bug en configuración para subir archivos desde usuario externo.
+- #179 - Resuelto bug con las url del api de proveedores.
+- #180 - Resuelto bug con las url de tipos de gasto.
+
+## 1.8.7 - 30/06/2024
 
 ### CourtBet.API.Integrations
 
