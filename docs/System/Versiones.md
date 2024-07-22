@@ -2,6 +2,43 @@
 
 Descripcion de las versiones de los sistemas de CourtBet
 
+## 1.15.15 - 15/07/2024
+
+### CourtBet.Project.Administrators
+
+- #7 - Creada instancia de sistemas.
+
+### CourtBet.API.Integrations
+
+- #170 - Resueltos los warnings del API.
+
+### CourtBet.Project.YouTapIt_Inventarios
+
+- #151 - Agregado modulo de Gastos Generales.
+- #152 - Agregado modulo de caja chica.
+- #138 - Agregado modulo de mantenimiento.
+- #176 - Agregada opcion para agregar telefono y correo a un cliente.
+- #135 - Agregado modulo de cobranza.
+- #150 - Agregado modulo de compras.
+- #136 - Agregado modulo de rentas y politicas.
+- #105 - Agregado limite de sucursales y activos por intancia.
+
+### CourtBet.API.Email
+
+- #16 - Agregado el envio de correo al CC y CCO.
+
+### Arlesa.Web.Project
+
+- #1 - Resueltos textos que no corresponden a sitio web.
+
+### XpressVisas.Web.Project
+
+- #1 - Resueltos textos que no corresponden al sitio web.
+
+### CourtBet.Web.Project
+
+- #1 - Resueltos textos que no corresponden al sitio web.
+
 ## 1.8.13 - 05/07/2024
 
 ### CourtBet.API.Integrations
