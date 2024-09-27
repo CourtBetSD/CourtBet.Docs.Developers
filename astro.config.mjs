@@ -4,6 +4,8 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://courtbetsd.github.io/',
+	base: 'CourtBet.Docs.Developers/',
 	integrations: [
 		starlight({
 			title: 'CourtBet.Docs.Developers',
@@ -32,6 +34,10 @@ export default defineConfig({
 					autogenerate: { directory: 'softwares' },
 				}
 			],
+			credits: true,
+			editLink: {
+				baseUrl: 'https://github.com/CourtBetSD/CourtBet.Docs.Developers/edit/main/',
+			},
 		}),
 	],
 });
