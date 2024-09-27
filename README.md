@@ -1,3 +1,6 @@
+# Build
+[![Deploy to GitHub Pages](https://github.com/CourtBetSD/CourtBet.Docs.Developers/actions/workflows/astro.yml/badge.svg)](https://github.com/CourtBetSD/CourtBet.Docs.Developers/actions/workflows/astro.yml)
+
 # Starlight Starter Kit: Basics
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
